@@ -1,13 +1,13 @@
 # assignment
 
-firstName = 'Marko'
-lastName = 'Markovikj'
+first_name = 'Marko'
+last_name = 'Markovikj'
 
 # methods
 
-puts firstName.reverse
+puts first_name.reverse
 
 # escaping, interpolation
 
-fullName = "#{firstName} #{lastName}"
+fullName = "#{first_name} #{last_name}"
 puts fullName

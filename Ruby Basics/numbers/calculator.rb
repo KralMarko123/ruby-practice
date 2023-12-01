@@ -19,7 +19,7 @@ elsif op == '%'
   puts num1 % num2
 end
 
-def doOperation(num1, num2, op)
+def do_operation(num1, num2, op)
   if op == '+'
     puts num1 + num2
   elsif op == '-'

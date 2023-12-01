@@ -1,12 +1,12 @@
 # homework
 
 puts 'Enter your first name...'
-firstName = gets.chomp
+first_name = gets.chomp
 puts 'Enter your last name...'
-lastName = gets.chomp
+last_name = gets.chomp
 
-fullName = "#{firstName} #{lastName}"
+full_name = "#{first_name} #{last_name}"
 
-puts "Your full name is: #{fullName}"
-puts "Your full name reversed is: #{fullName.reverse}"
-puts "You have #{fullName.delete(' ').length} characters in your name!"
+puts "Your full name is: #{full_name}"
+puts "Your full name reversed is: #{full_name.reverse}"
+puts "You have #{full_name.delete(' ').length} characters in your name!"
