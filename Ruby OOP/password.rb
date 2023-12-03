@@ -1,16 +1,11 @@
 require "bcrypt"
 
-my_password = BCrypt::Password.create("marko")
+def create_hashed_password(password)
+  BCrypt::Password.create(password)
+end
 
-puts my_password
-puts my_password == "marko"
 
-old_hash = my_password
+def create_new_hash(given_hash)
+  BCrypt::Password.new(given_hash)
+end
 
-my_password = BCrypt::Password.new(my_password)
-puts my_password
-
-puts old_hash == my_password
-
-puts my_password == "marko"
-puts my_password == "something else"
