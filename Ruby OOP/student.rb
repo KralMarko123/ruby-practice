@@ -1,29 +1,25 @@
-require "bcrypt"
+require 'bcrypt'
+require_relative 'password'
 
 class Student
   attr_accessor :first_name, :last_name, :email, :username
-  @first_name
-  @last_name
-  @email
-  @username
-  @password
 
   def initialize(first_name, last_name, email, password)
     @first_name = first_name
     @last_name = last_name
     @email = email
     @username = "#{first_name} #{last_name}"
-    @password = BCrypt::Password.create(password)
+    @password = BCryptPasswordGenerator.create_hashed_password(password)
   end
 
   def password
-    @password ||= BCrypt::Password.new(@password)
+    @password ||= BCryptPasswordGenerator.create_new_hash(@password)
   end
 
   def change_password(old_password, new_password)
-    if @password == old_password
-      @password = BCrypt::Password.create(new_password)
-    end
+    return unless @password == old_password
+
+    @password = BCryptPasswordGenerator.create_hashed_password(new_password)
   end
 
   def to_s
@@ -31,11 +27,14 @@ class Student
   end
 end
 
-marko = Student.new("Marko", "Markovikj", "kralmarko123@gmail.com", "marko")
+marko = Student.new('Marko', 'Markovikj', 'kralmarko123@gmail.com', 'marko')
 
 puts marko
 puts marko.password
+puts marko.password == 'marko'
 
-marko.change_password("marko", "123")
+marko.change_password('marko', '123')
 
 puts marko.password
+puts marko.password == 'marko'
+puts marko.password == '123'
